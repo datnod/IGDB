@@ -75,6 +75,5 @@ EOD;
 
     </table>
     
-    <?php include 'view/footer.php';?>
 <?php endif; ?>
 
