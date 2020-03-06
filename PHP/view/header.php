@@ -6,3 +6,9 @@
     <title><?= $headerTitle ?></title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
+<header>
+        <nav>
+          | <a href="index.php">HOME</a> |
+        </nav>
+</header>
