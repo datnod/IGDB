@@ -18,12 +18,16 @@ if ($search) {
     $sql = <<<EOD
 SELECT
     *
-FROM tech
+FROM mydb.IGBD
 WHERE
-    id = ?
-    OR label LIKE ?
-    OR type LIKE ?
-;
+    idIGBD = ?
+    OR Title LIKE ?
+    OR Description LIKE ?
+    OR Genre LIKE ?
+    OR Review LIKE ?
+    OR Release Data LIKE ?
+    OR Developer/Publisher LIKE ?
+    ;
 EOD;
     $stmt = $db->prepare($sql);
     $stmt->execute([$search, $like, $like]);
@@ -48,17 +52,25 @@ EOD;
 <?php if ($search) : ?>
     <table>
         <tr>
-            <th>Id</th>
-            <th>Label</th>
-            <th>Type</th>
+            <th>idIGBD</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Genre</th>
+            <th>Review</th>
+            <th>Release Data</th>
+            <th>Developer/Publisher</th>
         </tr>
 
     <?php foreach ($res as $row) : ?>
         <tr>
-            <td><?= $row["id"] ?></td>
-            <td><?= $row["label"] ?></td>
-            <td><?= $row["type"] ?></td>
-        </tr>
+            <td><?= $row["idIGBD"] ?></td>
+            <td><?= $row["Title"] ?></td>
+            <td><?= $row["Description"] ?></td>
+            <td><?= $row["Genre"] ?></td>
+            <td><?= $row["Review"] ?></td>
+            <td><?= $row["Release Data"] ?></td>
+            <td><?= $row["Developer/Publisher"] ?></td>
+            </tr>
     <?php endforeach; ?>
 
     </table>
