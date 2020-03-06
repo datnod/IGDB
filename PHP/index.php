@@ -1,4 +1,4 @@
-<?php
+<?php include 'view/header.php'; 
 
 /**
  * Just starting point
