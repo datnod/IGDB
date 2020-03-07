@@ -30,8 +30,7 @@ EOD;
 
 ?>
 
-<?php ?>
-    <table>
+<table>
         <tr>
             <th>Picture</th>
             <th>Title</th>
@@ -41,20 +40,17 @@ EOD;
             <th>Release</th>
             <th>Publisher</th>
         </tr>
-
     <?php foreach ($res as $row) : ?>
         <tr>
-
-        <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
+            <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
             <td><?= $row["Title"] ?></td>
             <td><?= $row["Description"] ?></td>
             <td><?= $row["Genre"] ?></td>
             <td><?= $row["Review"] ?></td>
             <td><?= $row["Release Data"] ?></td>
             <td><?= $row["Developer/Publisher"] ?></td>
-            </tr>
+        </tr>
     <?php endforeach; ?>
 
-    </table>
+</table>
     
-    <?php ?>
