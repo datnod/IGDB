@@ -1,45 +1,60 @@
-<?php  $headerTitle = "Search DB"; include 'view/header.php';
-$topinfo = "Top Games: ";
-echo "<h2>" . $topinfo . "</h2>";
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "mydb";
+<?php $headerTitle = "Top Games"; include 'view/header.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require "config.php";
+require "connect.php";
 
-$sql = "SELECT * FROM mydb.IGDB ORDER BY Review DESC; ";
-$result = $conn->query($sql);
+// Get incoming values
+$search = $_GET["review"] ?? null;
+$like = "%$search%";
 
+//var_dump($_GET);
 
-if ($result && $result->num_rows) {
-    echo "<table><tr>    
+    // Connect to the database
+    $db = connectDatabase($dsn);
+
+    // Prepare and execute the SQL statement
+    $sql = <<<EOD
+SELECT
+    *
+FROM IGDB.overview
+ORDER BY
+    review
+DESC   
+    ;
+EOD;
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$search, $like]);
+
+    // Get the results as an array with column names as array keys
+    $res = $stmt->fetchAll();
+
+?>
+
+<?php ?>
+    <table>
+        <tr>
+            <th>Picture</th>
             <th>Title</th>
             <th>Description</th>
             <th>Genre</th>
-            <th>Rating!</th>
-            <th>Release Data</th>
-            <th>Developer/Publisher</th>
-        </tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>
-        <td>".$row["Title"]."</td>
-        <td>".$row["Description"]."</td>
-        <td>".$row["Genre"]."</td>
-        <td>".$row["Review"]."</td>
-        <td>".$row["Release Data"]."</td>
-        <td>".$row["Developer"]."</td>
-        </tr>";
-    }
-    echo "</table>";
-} else {
-    echo "0 results";
-}
-$conn->close();
-?>
+            <th>Review</th>
+            <th>Release</th>
+            <th>Publisher</th>
+        </tr>
+
+    <?php foreach ($res as $row) : ?>
+        <tr>
+
+            <td><img src="Spel/wow.jpg" alt="wow"></td>
+            <td><?= $row["Title"] ?></td>
+            <td><?= $row["Description"] ?></td>
+            <td><?= $row["Genre"] ?></td>
+            <td><?= $row["Review"] ?></td>
+            <td><?= $row["Release Data"] ?></td>
+            <td><?= $row["Developer/Publisher"] ?></td>
+            </tr>
+    <?php endforeach; ?>
+
+    </table>
+    
+    <?php ?>
