@@ -44,11 +44,33 @@ EOD;
     </p>
 </form>
 
-<?php if ($search = "wow") {
-$im = imagecreatefromjpeg( 
-    'https://en.wikipedia.org/wiki/World_of_Warcraft#/media/File:WoW_Box_Art1.jpg');
-     header('Content-type: image/jpg');   
-imagejpeg($im); 
-imagedestroy($im); 
-} ?>
+
+<?php if ($search) : ?>
+    <table>
+        <tr>
+        <th>Picture</th>       
+            <th>Title</th>
+            <th>Description</th>
+            <th>Genre</th>
+            <th>Review</th>
+            <th>Release Data</th>
+            <th>Developer/Publisher</th>
+        </tr>
+
+    <?php foreach ($res as $row) : ?>
+        <tr>
+        
+            <td><img src="Spel/wow.jpg" alt="wow"></td>
+            <td><?= $row["Title"] ?></td>
+            <td><?= $row["Description"] ?></td>
+            <td><?= $row["Genre"] ?></td>
+            <td><?= $row["Review"] ?></td>
+            <td><?= $row["Release Data"] ?></td>
+            <td><?= $row["Developer/Publisher"] ?></td>
+            </tr>
+    <?php endforeach; ?>
+
+    </table>
+    
+<?php endif; ?>
 

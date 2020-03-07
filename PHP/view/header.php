@@ -10,5 +10,6 @@
 <header>
         <nav>
           | <a href="index.php">HOME</a> |
+          <a href="search.php">SEARCH</a> |
         </nav>
 </header>
