@@ -13,7 +13,7 @@ require "connect.php";
 
 // Get incoming values
 $top = $_GET["search"] ?? null;
-$like = "%$search%";
+$like = "%$top%";
 
 if ($top) {
     // Connect to the database
