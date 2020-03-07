@@ -12,6 +12,6 @@
           | <a href="index.php">HOME</a> |
           <a href="search.php">SEARCH</a> |
           <a href="about.php">ABOUT</a> |
-          <a href="toplist.php">TOP 10</a> |
+          <a href="toplist.php">TOP</a> |
         </nav>
 </header>
