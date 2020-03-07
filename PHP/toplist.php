@@ -3,17 +3,11 @@
 require "config.php";
 require "connect.php";
 
-// Get incoming values
-$search = $_GET["review"] ?? null;
-$like = "%$search%";
+// Connect to the database
+$db = connectDatabase($dsn);
 
-//var_dump($_GET);
-
-    // Connect to the database
-    $db = connectDatabase($dsn);
-
-    // Prepare and execute the SQL statement
-    $sql = <<<EOD
+// Prepare and execute the SQL statement
+$sql = <<<EOD
 SELECT
     *
 FROM mydb.IGDB
@@ -23,7 +17,7 @@ DESC
     ;
 EOD;
     $stmt = $db->prepare($sql);
-    $stmt->execute([$search, $like]);
+    $stmt->execute();
 
     // Get the results as an array with column names as array keys
     $res = $stmt->fetchAll();
