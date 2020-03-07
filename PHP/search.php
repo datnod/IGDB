@@ -22,10 +22,12 @@ FROM mydb.IGDB
 WHERE
     idIGDB = ?
     OR Title LIKE ?
+    OR Genre LIKE ?
+    OR Developer LIKE ?
       ;
 EOD;
     $stmt = $db->prepare($sql);
-    $stmt->execute([$search, $like]);
+    $stmt->execute([$search,$like,$like,$like]);
 
     // Get the results as an array with column names as array keys
     $res = $stmt->fetchAll();
@@ -58,15 +60,14 @@ EOD;
         </tr>
 
     <?php foreach ($res as $row) : ?>
-        <tr>
-        
-            <td><img src="Spel/wow.jpg" alt="wow"></td>
+        <tr>                
+            <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" />';</td>
             <td><?= $row["Title"] ?></td>
             <td><?= $row["Description"] ?></td>
             <td><?= $row["Genre"] ?></td>
             <td><?= $row["Review"] ?></td>
             <td><?= $row["Release Data"] ?></td>
-            <td><?= $row["Developer/Publisher"] ?></td>
+            <td><?= $row["Developer"] ?></td>
             </tr>
     <?php endforeach; ?>
 

@@ -13,7 +13,7 @@ require "connect.php";
 
 // Get incoming values
 $top = $_GET["search"] ?? null;
-$like = "%$search%";
+$like = "%$top%";
 
 if ($top) {
     // Connect to the database
@@ -24,10 +24,7 @@ if ($top) {
 SELECT
     *
 FROM mydb.IGDB
-WHERE
-    idIGDB = ?
-    OR Review ?
-    ;
+;
 EOD;
     $stmt = $db->prepare($sql);
     $stmt->execute([$top, $like]);
@@ -38,15 +35,20 @@ EOD;
 
 ?>
 
+ 
 <table>
-        <tr>
-        <th>Picture</th>       
-            <th>Title</th>
-            <th>Description</th>
-            <th>Genre</th>
-            <th>Review</th>
-            <th>Release Data</th>
-            <th>Developer/Publisher</th>
-        </tr>
+    
+
+
+
+    
+       
+       
+       
+           
+         
+         
+       
+            
        
 </table>        
