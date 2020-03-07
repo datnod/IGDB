@@ -16,7 +16,7 @@ $like = "%$search%";
     $sql = <<<EOD
 SELECT
     *
-FROM IGDB.overview
+FROM mydb.IGDB
 ORDER BY
     review
 DESC   
@@ -45,7 +45,7 @@ EOD;
     <?php foreach ($res as $row) : ?>
         <tr>
 
-            <td><img src="Spel/wow.jpg" alt="wow"></td>
+        <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
             <td><?= $row["Title"] ?></td>
             <td><?= $row["Description"] ?></td>
             <td><?= $row["Genre"] ?></td>
