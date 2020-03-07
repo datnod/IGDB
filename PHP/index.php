@@ -1,8 +1,12 @@
-<?php include 'view/header.php'; 
+<?php $headerTitle = "Homepage"; include 'view/header.php'; 
 
 /**
- * Just starting point
- * Liridon Suger
+ * Home page with a Narrative of what the website is.
  */
 
-?><h1>PHP Index</h1>
+$welcome = "Welcome to Internet Game Database";
+$narrative = "IGDb is an online database that contains information regarding different games!";
+
+ echo "<h2>" . $welcome . "</h2>";
+ echo "<h4>" . $narrative . "</h4>";
+?>
