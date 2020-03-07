@@ -30,6 +30,12 @@ EOD;
 
 ?>
 
+<?php 
+ 
+ echo "<h2> Top Games: </h2>";
+
+?>
+
 <?php ?>
     <table>
         <tr>
