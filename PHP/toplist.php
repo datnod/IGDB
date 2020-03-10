@@ -49,7 +49,10 @@ $test2=2;
  
  echo "<h2> Top Games: </h2>";
 
+
+ 
 ?>
+
 
 <table>
         <tr>
@@ -60,7 +63,9 @@ $test2=2;
             <th>Review</th>
             <th>Release</th>
             <th>Publisher</th>
+            <th>Trailer</th>
             <th>Rate!</th>
+            
         </tr>
     <?php foreach ($res as $row) : ?>
         <tr>
@@ -71,6 +76,11 @@ $test2=2;
             <td><?= $row["Review"] ?></td>
             <td><?= $row["Release Data"] ?></td>
             <td><?= $row["Developer"] ?></td>
+            <td>  
+   <video width="320" height="240" controls>
+  <source src="<?php echo $row['Trailer']; ?>" type="video/mp4">
+    Your browser does not support the video tag.
+        </video>   </td>
             <td><button type="RATE" onclick="$stmt->execute($test,$test2);" value="">RATE</button></td>
         </tr>
     <?php endforeach; ?>

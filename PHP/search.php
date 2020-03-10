@@ -50,28 +50,37 @@ EOD;
 <?php if ($search) : ?>
     <table>
         <tr>
-        <th>Picture</th>       
+            <th>Picture</th>
             <th>Title</th>
             <th>Description</th>
             <th>Genre</th>
             <th>Review</th>
-            <th>Release Data</th>
-            <th>Developer/Publisher</th>
+            <th>Release</th>
+            <th>Publisher</th>
+            <th>Trailer</th>
+            <th>Rate!</th>
+            
         </tr>
-
     <?php foreach ($res as $row) : ?>
-        <tr>                
-            <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" />';</td>
+        <tr>
+            <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
             <td><?= $row["Title"] ?></td>
             <td><?= $row["Description"] ?></td>
             <td><?= $row["Genre"] ?></td>
             <td><?= $row["Review"] ?></td>
             <td><?= $row["Release Data"] ?></td>
             <td><?= $row["Developer"] ?></td>
-            </tr>
+            <td>  
+   <video width="320" height="240" controls>
+  <source src="<?php echo $row['Trailer']; ?>" type="video/mp4">
+    Your browser does not support the video tag.
+        </video>   </td>
+            <td><button type="RATE" onclick="$stmt->execute($test,$test2);" value="">RATE</button></td>
+        </tr>
     <?php endforeach; ?>
 
-    </table>
+
+</table>
     
 <?php endif; ?>
 
