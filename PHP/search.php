@@ -5,13 +5,18 @@ ini_set("allow_url_fopen", 1);
 $search = $_GET["search"] ?? null;
 $like = "%$search%";
 
+
+
 session_start(); 
  $_SESSION['ID']=$search;
  $_SESSION['Title']=$like;
  $_SESSION['Genre']=$like;
  $_SESSION['Developer']=$like;   
  
+
     
+
+
 ?>
 
 <h2>Search the database</h2>
