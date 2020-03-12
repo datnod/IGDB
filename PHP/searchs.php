@@ -13,18 +13,17 @@ $database = new Database();
 $db = $database->connectDatabase();
   
 // initialize object
-$product = new Product($db);
+$productz = new Product($db);
   
-// get keywords
-$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
+
   
 // query products
-$stmt = $product->search($keywords);
-$num = $stmt->rowCount();
+$stmtz = $productz->search();
+$numz = $stmtz->rowCount();
   
 // check if more than 0 record found
 
-if($num>0){
+if($numz>0){
   
     // products array
     $searchItems_arr=array();
@@ -33,7 +32,7 @@ if($num>0){
     // retrieve our table contents
     // fetch() is faster than fetchAll()
     // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    while ($row = $stmtz->fetch(PDO::FETCH_ASSOC)){
         // extract row
         // this will make $row['name'] to
         // just $name only
@@ -67,7 +66,7 @@ else{
   
     // tell the user no products found
     echo json_encode(
-        array("message" => "No items found.")
+        array("No Value")
     );
 }
 ?>

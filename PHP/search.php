@@ -4,15 +4,14 @@ ini_set("allow_url_fopen", 1);
 // Get incoming values
 $search = $_GET["search"] ?? null;
 $like = "%$search%";
+
 session_start(); 
- $_SESSION['ID']=$_GET["search"] ?? null;
- $_SESSION['Title']="%$search%";
- $_SESSION['Genre']="%$search%";
- $_SESSION['Developer']="%$search%";   
- $json = file_get_contents('C:\xampp\htdocs\IGDB\PHP\searchs.php');
-        $jsonObj = json_decode($json,TRUE);     
-       //json hämtar IGDB
-        $test = $jsonObj["SEARCHITEMS"];
+ $_SESSION['ID']=$search;
+ $_SESSION['Title']=$like;
+ $_SESSION['Genre']=$like;
+ $_SESSION['Developer']=$like;   
+ 
+    
 ?>
 
 <h2>Search the database</h2>

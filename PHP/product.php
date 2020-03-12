@@ -46,14 +46,10 @@ class Product{
 
 
 
-    // constructor with $db as database connection
-    public function __construct($db){
-        $this->conn = $db;
-    }
-   
+    
   
 // search products
-function search($keywords){
+function search(){
   
 
     session_start(); 
@@ -102,6 +98,10 @@ function search($keywords){
     return $stmt;
 }
 
+// constructor with $db as database connection
+public function __construct($db){
+    $this->conn = $db;
+}
 
 
 

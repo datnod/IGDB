@@ -75,7 +75,3 @@ else{
         array("message" => "No Elements found.")
     );
 }
-
- function arrayBAJS(){
-    return $products_arr;
-}
