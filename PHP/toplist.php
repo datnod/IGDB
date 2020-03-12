@@ -1,56 +1,15 @@
-<?php $headerTitle = "Top Games"; include 'view/header.php';
+<?php $headerTitle = "Top Games"; include 'view/header.php'; 
+ini_set("allow_url_fopen", 1);
 
-require "config.php";
-require "connect.php";
+ $json = file_get_contents('http://localhost/IGDB/PHP/read.php');
+ $obj = json_decode($json,TRUE);
 
-
-
-
-
-// Connect to the database
-$db = connectDatabase($dsn);
-
-// Prepare and execute the SQL statement
-
-
-
-$sql = <<<EOD
-SELECT
-    *
-FROM mydb.IGDB
-ORDER BY
-    review
-DESC 
-    ;
-EOD;
-
-
-
-
-    
-
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    // Get the results as an array with column names as array keys
-    $res = $stmt->fetchAll();
-
-
-    $sql = "UPDATE mydb.IGDB
-    SET Review = ?
-    WHERE idIGDB = ?;";
-    $stmt = $db->prepare($sql);
-   
-$test=1;
-$test2=2;
-
+//json hämtar IGDB
+ $temp = $obj["IGDB"];
+ 
 ?>
-
-<?php 
- 
+<?php
  echo "<h2> Top Games: </h2>";
-
-
- 
 ?>
 
 
@@ -67,15 +26,17 @@ $test2=2;
             <th>Rate!</th>
             
         </tr>
-    <?php foreach ($res as $row) : ?>
-        <tr>
+
+        
+    <?php foreach ($temp  as $row) : ?>
+            <tr>
             <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
-            <td><?= $row["Title"] ?></td>
-            <td><?= $row["Description"] ?></td>
-            <td><?= $row["Genre"] ?></td>
-            <td><?= $row["Review"] ?></td>
-            <td><?= $row["Release Data"] ?></td>
-            <td><?= $row["Developer"] ?></td>
+            <td><?php  echo $row['Title']; ?></td>
+            <td><?php  echo $row['Description']; ?></td>
+            <td><?php  echo $row['Genre']; ?></td>
+            <td><?php  echo $row['Review']; ?></td>
+            <td><?php  echo $row['Release']; ?></td>
+            <td><?php echo $row['Developer']; ?></td>
             <td>  
    <video width="320" height="240" controls>
   <source src="<?php echo $row['Trailer']; ?>" type="video/mp4">
@@ -84,7 +45,20 @@ $test2=2;
             <td><button type="RATE" onclick="$stmt->execute($test,$test2);" value="">RATE</button></td>
         </tr>
     <?php endforeach; ?>
+  
+
+
 
 
 </table>
+<?php
+  function runMyFunction() {
+ 
+ 
     
+  }
+
+  if (isset($_GET['dbupdate'])) {
+    runMyFunction();
+  }
+?>    

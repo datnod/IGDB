@@ -1,53 +1,34 @@
 <?php $headerTitle = "Search DB"; include 'view/header.php';
-
-
-
-require "config.php";
-require "connect.php";
+ini_set("allow_url_fopen", 1);
 
 // Get incoming values
 $search = $_GET["search"] ?? null;
 $like = "%$search%";
-//var_dump($_GET);
+session_start(); 
+ $_SESSION['ID']=$_GET["search"] ?? null;;
+ $_SESSION['Title']="%$search%";
+ $_SESSION['Genre']="%$search%";
+ $_SESSION['Developer']="%$search%";   
+ $json = file_get_contents('C:\xampp\htdocs\IGDB\PHP\searchs.php');
+        $jsonObj = json_decode($json,TRUE);     
+       //json hämtar IGDB
+        $test = $jsonObj["SEARCHITEMS"];
+?>
 
-if ($search) {
-    // Connect to the database
-    $db = connectDatabase($dsn);
-
-    // Prepare and execute the SQL statement
-    $sql = <<<EOD
-SELECT
-    *
-FROM mydb.IGDB
-WHERE
-    idIGDB = ?
-    OR Title LIKE ?
-    OR Genre LIKE ?
-    OR Developer LIKE ?
-      ;
-EOD;
-    $stmt = $db->prepare($sql);
-    $stmt->execute([$search,$like,$like,$like]);
-
-    // Get the results as an array with column names as array keys
-    $res = $stmt->fetchAll();
-}
-
-
-
-
-?><h2>Search the database</h2>
-
+<h2>Search the database</h2>
 <form>
     <p>
         <label>Search: 
-            <input type="text" name="search" value="<?= $search ?>">
+            <input  type="text" name="search" value="<?= $search              
+            ?>">
         </label>
     </p>
 </form>
 
 
 <?php if ($search) : ?>
+    
+
     <table>
         <tr>
             <th>Picture</th>
@@ -61,15 +42,16 @@ EOD;
             <th>Rate!</th>
             
         </tr>
-    <?php foreach ($res as $row) : ?>
+        
+    <?php foreach ((array)$test as $row) : ?>
         <tr>
             <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
-            <td><?= $row["Title"] ?></td>
-            <td><?= $row["Description"] ?></td>
-            <td><?= $row["Genre"] ?></td>
-            <td><?= $row["Review"] ?></td>
-            <td><?= $row["Release Data"] ?></td>
-            <td><?= $row["Developer"] ?></td>
+            <td><?php  echo $row['Title']; ?></td>
+            <td><?php  echo $row['Description']; ?></td>
+            <td><?php  echo $row['Genre']; ?></td>
+            <td><?php  echo $row['Review']; ?></td>
+            <td><?php  echo $row['Release']; ?></td>
+            <td><?php echo $row['Developer']; ?></td>
             <td>  
    <video width="320" height="240" controls>
   <source src="<?php echo $row['Trailer']; ?>" type="video/mp4">
@@ -80,7 +62,6 @@ EOD;
     <?php endforeach; ?>
 
 
-</table>
-    
-<?php endif; ?>
 
+    </table>    
+<?php endif; ?>
