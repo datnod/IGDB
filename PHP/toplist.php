@@ -4,7 +4,6 @@ ini_set("allow_url_fopen", 1);
 
  $json = file_get_contents('http://localhost/IGDB/PHP/read.php');
  $obj = json_decode($json,TRUE);
-
 //json hämtar IGDB
  $temp = $obj["IGDB"];
  

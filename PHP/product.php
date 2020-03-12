@@ -51,11 +51,14 @@ class Product{
 // search products
 function search(){
   
+  
+
+    
 
     session_start(); 
     if(isset($_SESSION['ID'])){
         $idForSearch=$_SESSION['ID'];
-    }
+        }
     if(isset($_SESSION['Title'])){
         $TitleForSearch=$_SESSION['Title'];      
     }
@@ -65,6 +68,7 @@ function search(){
     if(isset($_SESSION['Developer'])){
         $DeveloperForSearch=$_SESSION['Developer'];      
     }
+    
     
   
   
@@ -85,6 +89,7 @@ function search(){
     // prepare query statement
     $stmt = $this->conn->prepare($query);  
         
+     
 
     // bind
     $stmt->bindParam(1, $idForSearch);

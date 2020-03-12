@@ -1,11 +1,13 @@
 <?php $headerTitle = "Search DB"; include 'view/header.php';
+
 ini_set("allow_url_fopen", 1);
+
+
+
 
 // Get incoming values
 $search = $_GET["search"] ?? null;
 $like = "%$search%";
-
-
 
 session_start(); 
  $_SESSION['ID']=$search;
@@ -14,9 +16,19 @@ session_start();
  $_SESSION['Developer']=$like;   
  
 
-    
+ $json =$_SESSION['data'] ?? 'Fotte' ;
+ 
 
+ 
+ 
+ //json hämtar IGDB
+  
+ 
+  
+  $temp=$json['searchForGames'];
+  
 
+  
 ?>
 
 <h2>Search the database</h2>
@@ -24,7 +36,8 @@ session_start();
     <p>
         <label>Search: 
             <input  type="text" name="search" value="<?= $search              
-            ?>">
+  ?>" >
+ 
         </label>
     </p>
 </form>
@@ -47,7 +60,7 @@ session_start();
             
         </tr>
         
-    <?php foreach ((array)$test as $row) : ?>
+    <?php foreach ((array)$temp as $row) : ?>
         <tr>
             <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
             <td><?php  echo $row['Title']; ?></td>

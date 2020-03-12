@@ -1,4 +1,3 @@
-
 <?php
 // required headers
 header("Access-Control-Allow-Origin: *");
@@ -9,8 +8,8 @@ include 'C:\xampp\htdocs\IGDB\PHP\database.php';
 include 'C:\xampp\htdocs\IGDB\PHP\product.php';
   
 // instantiate database and product object
-$database = new Database();
-$db = $database->connectDatabase();
+$databasez = new Database();
+$db = $databasez->connectDatabase();
   
 // initialize object
 $productz = new Product($db);
@@ -22,6 +21,7 @@ $stmtz = $productz->search();
 $numz = $stmtz->rowCount();
   
 // check if more than 0 record found
+ 
 
 if($numz>0){
   
@@ -51,13 +51,21 @@ if($numz>0){
         );
   
         array_push($searchItems_arr["searchForGames"], $search_item);
+        
     }
   
     // set response code - 200 OK
     http_response_code(200);
+    $_SESSION['data']=$searchItems_arr;
+       // header("Refresh:0");
   
+
     // show products data
+      
     echo json_encode($searchItems_arr);
+  
+
+
 }
   
 else{
