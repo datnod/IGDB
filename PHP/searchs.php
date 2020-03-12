@@ -56,14 +56,14 @@ if($numz>0){
   
     // set response code - 200 OK
     http_response_code(200);
-    $_SESSION['data']=$searchItems_arr;
+    
        // header("Refresh:0");
   
 
     // show products data
       
     echo json_encode($searchItems_arr);
-  
+    $_SESSION['data']=$searchItems_arr;
 
 
 }
