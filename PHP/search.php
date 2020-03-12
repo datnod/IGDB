@@ -5,7 +5,7 @@ ini_set("allow_url_fopen", 1);
 $search = $_GET["search"] ?? null;
 $like = "%$search%";
 session_start(); 
- $_SESSION['ID']=$_GET["search"] ?? null;;
+ $_SESSION['ID']=$_GET["search"] ?? null;
  $_SESSION['Title']="%$search%";
  $_SESSION['Genre']="%$search%";
  $_SESSION['Developer']="%$search%";   

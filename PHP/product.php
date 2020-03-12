@@ -39,40 +39,7 @@ class Product{
         return $stmt;
     }
    
-    function search(){
-  
-        // select all query
-        session_start(); 
-        $idForSearch=$_SESSION['ID'];
-        $TitleForSearch=$_SESSION['Title'];
-        $GenreForSearch=$_SESSION['Genre'];
-        $DeveloperForSearch=$_SESSION['Developer'];
-         
-
-
-       $query="SELECT
-       *
-       FROM mydb.IGDB
-       WHERE
-       idIGDB = ?
-       OR Title LIKE ?
-       OR Genre LIKE ?
-       OR Developer LIKE ?
-         ;";
-       
-       $temp1=$idForSearch;
-       $temp2=$TitleForSearch;
-       $temp3=$GenreForSearch;
-       $temp4=$DeveloperForSearch;
-
-        // prepare query statement
-        $stmt = $this->conn->prepare($query);
-      
-        // execute query
-        $stmt->execute([$temp1,$temp2,$temp3, $temp4]);
-      
-        return $stmt;
-    }
+    
     
 
 
@@ -85,6 +52,60 @@ class Product{
     }
    
   
+// search products
+function search($keywords){
+  
+
+    session_start(); 
+    if(isset($_SESSION['ID'])){
+        $idForSearch=$_SESSION['ID'];
+    }
+    if(isset($_SESSION['Title'])){
+        $TitleForSearch=$_SESSION['Title'];      
+    }
+    if(isset($_SESSION['Genre'])){
+        $GenreForSearch=$_SESSION['Genre'];      
+    }
+    if(isset($_SESSION['Developer'])){
+        $DeveloperForSearch=$_SESSION['Developer'];      
+    }
+    
+  
+  
+    
+
+
+    // select all query
+    $query="SELECT
+    *
+    FROM mydb.IGDB
+    WHERE
+    idIGDB = ?
+    OR Title LIKE ?
+    OR Genre LIKE ?
+    OR Developer LIKE ?
+      ;";
+  
+    // prepare query statement
+    $stmt = $this->conn->prepare($query);  
+        
+
+    // bind
+    $stmt->bindParam(1, $idForSearch);
+    $stmt->bindParam(2, $TitleForSearch);
+    $stmt->bindParam(3, $GenreForSearch);
+    $stmt->bindParam(4, $DeveloperForSearch);
+ 
+   // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
+
+
+
+
+
 }
 
 ?>
