@@ -8,7 +8,7 @@
 </head>
 
 
-<div class="container blue topBotomBordersOut">
+<div class="container indigo topBotomBordersOut">
 <a href="index.php">Home</a>
   <a href="about.php">About</a>
   <a href="search.php">Search</a>
