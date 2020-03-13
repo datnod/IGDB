@@ -4,14 +4,13 @@
 <head>
     <meta charset="utf-8">
     <title><?= $headerTitle ?></title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 
-<header>
-        <nav>
-          | <a href="index.php">HOME</a> |
-          <a href="search.php">SEARCH</a> |
-          <a href="about.php">ABOUT</a> |
-          <a href="toplist.php">TOP</a> |
-        </nav>
-</header>
+
+<div class="container blue topBotomBordersOut">
+<a href="index.php">Home</a>
+  <a href="about.php">About</a>
+  <a href="search.php">Search</a>
+  <a href="toplist.php">Toplist</a>
+</div>

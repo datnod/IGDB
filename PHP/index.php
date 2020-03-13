@@ -2,11 +2,23 @@
 
 /**
  * Home page with a Narrative of what the website is.
- */
+ */?>
+<link rel="stylesheet" href="css/style.css" type="text/css">
 
-$welcome = "Welcome to Internet Game Database";
-$narrative = "IGDb is an online database that contains information regarding different games!";
+<html>
+<body>
+<div class = "center">
+<p>
+</br>
+<h1>Welcome to IGDB</h1>
 
- echo "<h2>" . $welcome . "</h2>";
- echo "<h4>" . $narrative . "</h4>";
-?>
+<p>
+<h2>IGDb is an online database that contains information regarding different games!</h2>
+</p>
+
+</p>
+</div>
+</body>
+</html>
+
+<?php include 'view/footer.php';?>

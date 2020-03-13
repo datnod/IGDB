@@ -3,16 +3,18 @@
 /**
  * About page with an explanation of our project and team.
  */
-
-
-$about = "About Us: ";
-$team = "Team: Two and a Half Men!";
-$members = "We are three folks in this project, Henrik Vihlborg, Oskar Forssman and Liridon Smailji.";
-$roles = "Oskar is responsible for the database. Liridon is responsible for backend. Henrik is responsible for frontend.";
-
- echo "<h2>" . $about . "</h2>";
- echo "<h4>" . $team . "</h4>";
- echo "<h4>" . $members . "</h4>";
- echo "<h4>" . $roles . "</h4>";
-
 ?>
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
+<html>
+<body>
+<div class = "center">
+<h1>About Us:</h1>
+<h2>Team: Two and a Half Men!</h2>
+<h2>We are three persons in this project, Henrik Vihlborg, Oskar Forssman and Liridon Smailji.</h2>
+<h2>Oskar is responsible for the database. Liridon is responsible for backend. Henrik is responsible for frontend.</h2>
+</div>
+</body>
+</html>
+
+<?php include 'view/footer.php';?>
