@@ -30,7 +30,8 @@ session_start();
 
   
 ?>
-
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<div class = "center">
 <h2>Search the database</h2>
 <form>
     <p>
@@ -78,4 +79,7 @@ session_start();
 
 
     </table>    
+
+    </div>
 <?php endif; ?>
+<?php include 'view/footer.php';?>

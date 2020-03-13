@@ -8,10 +8,11 @@ ini_set("allow_url_fopen", 1);
  $temp = $obj["IGDB"];
  
 ?>
-<?php
- echo "<h2> Top Games: </h2>";
-?>
 
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<div class = "center">
+
+<h1>Top Games:</h1>
 
 <table>
         <tr>
@@ -61,4 +62,6 @@ ini_set("allow_url_fopen", 1);
   if (isset($_GET['dbupdate'])) {
     runMyFunction();
   }
-?>    
+?> 
+</div>   
+<?php include 'view/footer.php';?>
