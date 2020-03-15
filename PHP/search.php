@@ -1,6 +1,17 @@
 <?php $headerTitle = "Search DB"; include 'view/header.php';
+include 'C:\xampp\htdocs\IGDB\PHP\database.php';
+include 'C:\xampp\htdocs\IGDB\PHP\product.php';
 
-ini_set("allow_url_fopen", 1);
+
+
+// instantiate database and product object
+$databasez = new Database();
+$db = $databasez->connectDatabase();
+  
+// initialize object
+$productz = new Product($db);
+  
+
 
 
 
@@ -9,25 +20,66 @@ ini_set("allow_url_fopen", 1);
 $search = $_GET["search"] ?? null;
 $like = "%$search%";
 
-session_start(); 
- $_SESSION['ID']=$search;
- $_SESSION['Title']=$like;
- $_SESSION['Genre']=$like;
- $_SESSION['Developer']=$like;   
- 
-
- $json =$_SESSION['data'] ?? 'Fotte' ;
- 
-
- 
- 
- //json hämtar IGDB
-  
- 
-  
-  $temp=$json['searchForGames'];
+// query products
+$stmtz = $productz->searchz($search,$like,$like,$like);
+$numz = $stmtz->rowCount();
   
 
+
+  
+if($numz>0){
+  
+    // products array
+    $searchItems_arr=array();
+    $searchItems_arr["searchForGames"]=array();
+  
+    // retrieve our table contents
+    // fetch() is faster than fetchAll()
+    // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
+    while ($row = $stmtz->fetch(PDO::FETCH_ASSOC)){
+        // extract row
+        // this will make $row['name'] to
+        // just $name only
+        extract($row);
+  
+        $search_item=array(
+            "idIGDB" =>  $idIGDB,
+            "picture" => $picture,
+            "Title" => $Title,
+            "Description" => $Description,
+            "Genre" => $Genre,
+            "Review" => $Review,
+            "Release" => $Release,
+            "Developer" => $Developer,
+            "Trailer" => $Trailer,       
+        );
+  
+        array_push($searchItems_arr["searchForGames"], $search_item);
+        
+    }
+  
+    // set response code - 200 OK
+    http_response_code(200);
+    
+       // header("Refresh:0");
+  
+
+    // show products data
+    $temp = $searchItems_arr["searchForGames"];    
+        
+}
+  
+else{
+    // set response code - 404 Not found
+    http_response_code(404);
+  
+    // tell the user no products found
+    echo json_encode(
+        array("No Value")
+    );
+}
+
+  
   
 ?>
 <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -76,6 +128,7 @@ session_start();
             <td><button type="RATE" onclick="$stmt->execute($test,$test2);" value="">RATE</button></td>
         </tr>
     <?php endforeach; ?>
+
 
 
     </table>    

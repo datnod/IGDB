@@ -15,9 +15,8 @@ $db = $databasez->connectDatabase();
 $productz = new Product($db);
   
 
-  
 // query products
-$stmtz = $productz->search();
+$stmtz = $productz->searchz();
 $numz = $stmtz->rowCount();
   
 // check if more than 0 record found
@@ -64,8 +63,7 @@ if($numz>0){
       
     echo json_encode($searchItems_arr);
     $_SESSION['data']=$searchItems_arr;
-
-
+       
 }
   
 else{
@@ -77,4 +75,5 @@ else{
         array("No Value")
     );
 }
+
 ?>

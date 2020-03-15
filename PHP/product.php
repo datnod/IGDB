@@ -40,39 +40,15 @@ class Product{
     }
    
     
-    
-
-
-
+   
 
 
     
   
 // search products
-function search(){
-  
-  
-
+function searchz( $idForSearch,$TitleForSearch,$GenreForSearch,$DeveloperForSearch){
     
 
-    session_start(); 
-    if(isset($_SESSION['ID'])){
-        $idForSearch=$_SESSION['ID'];
-        }
-    if(isset($_SESSION['Title'])){
-        $TitleForSearch=$_SESSION['Title'];      
-    }
-    if(isset($_SESSION['Genre'])){
-        $GenreForSearch=$_SESSION['Genre'];      
-    }
-    if(isset($_SESSION['Developer'])){
-        $DeveloperForSearch=$_SESSION['Developer'];      
-    }
-    
-    
-  
-  
-    
 
 
     // select all query
@@ -107,7 +83,6 @@ function search(){
 public function __construct($db){
     $this->conn = $db;
 }
-
 
 
 
