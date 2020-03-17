@@ -13,4 +13,11 @@
   <a href="about.php">About</a>
   <a href="search.php">Search</a>
   <a href="toplist.php">Toplist</a>
+  <div class ="login-container">
+  <form action="">
+  <input type ="text" placeholder="Username" name="username">
+  <input type ="text" placeholder="Password" name="password">
+  <button type="submit">Login</button>
+  </form>
+</div>
 </div>

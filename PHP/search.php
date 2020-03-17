@@ -2,20 +2,12 @@
 include '..\PHP\RestFulAPI\database.php';
 include '..\PHP\RestFulAPI\product.php';
 
-
-
 // instantiate database and product object
 $databasez = new Database();
-$db = $databasez->connectDatabase();
-  
+$db = $databasez->connectDatabase();  
 // initialize object
 $productz = new Product($db);
   
-
-
-
-
-
 // Get incoming values
 $search = $_GET["search"] ?? null;
 $like = "%$search%";
@@ -23,9 +15,6 @@ $like = "%$search%";
 // query products
 $stmtz = $productz->searchz($search,$like,$like,$like);
 $numz = $stmtz->rowCount();
-  
-
-
   
 if($numz>0){
   
