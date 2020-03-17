@@ -34,7 +34,7 @@ th {
     color: white;
 }
 
-tr:nth-child(even) {background-color: #3f51b5;}
+tr:nth-child(odd) {background-color: #3f51b5;}
 
 
 body {
