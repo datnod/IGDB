@@ -41,6 +41,8 @@ if(isset($_POST['submit'])){
   $res=$conn->query($sql);
   $num = $res->rowCount();
   if($num==1){
+    session_start();
+    $_SESSION["validUser"] = "Peter";
     header("location: HiddenPage.php");
     
   }else{
