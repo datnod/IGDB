@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION["validUser"] === "Peter"){
+if($_SESSION["validUser"] === true){
   echo "Welcome to CRUD";
   var_dump($_SESSION['validUser']);
   session_destroy();
