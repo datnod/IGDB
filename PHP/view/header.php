@@ -17,21 +17,36 @@
   <input type ="password" placeholder="Password" name="password">
   <button type="submit" name="submit">Login</button>
   </form>
-
-<?php
-
-if(isset($_POST['submit'])){
-  $username=$_POST['username'];
-  $password=$_POST['password'];
- echo ("$username");
- echo ("$password");
-}
-?>
-
 </div>
 <a href="index.php">Home</a>
   <a href="about.php">About</a>
   <a href="search.php">Search</a>
   <a href="toplist.php">Toplist</a>
-  
 </div>
+
+ 
+ 
+  
+<?php
+include_once '..\PHP\RestFulAPI\database.php';
+if(isset($_POST['submit'])){
+  $username=$_POST['username'];
+  $password=$_POST['password'];
+
+  $sql= "SELECT * FROM myigdb.auth WHERE user= '$username' AND pass = '$password'";
+  
+  $dataB = new Database();
+  $conn = $dataB->connectDatabase();  
+       
+  $res=$conn->query($sql);
+  $num = $res->rowCount();
+  if($num==1){
+    header("location: HiddenPage.php");
+    
+  }else{
+    echo ("Unsucces");
+  }
+  
+
+}
+?>

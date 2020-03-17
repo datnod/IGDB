@@ -1,6 +1,6 @@
 <?php $headerTitle = "Search DB"; include 'view/header.php';
-include '..\PHP\RestFulAPI\database.php';
-include '..\PHP\RestFulAPI\product.php';
+include_once '..\PHP\RestFulAPI\database.php';
+include_once '..\PHP\RestFulAPI\product.php';
 
 // instantiate database and product object
 $databasez = new Database();
