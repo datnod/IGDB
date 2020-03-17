@@ -1,13 +1,13 @@
 <?php $headerTitle = "Top Games"; include 'view/header.php'; 
 ini_set("allow_url_fopen", 1);
-
-
- $json = file_get_contents('http://localhost/IGDB/PHP/read.php');
+ $json = file_get_contents('http://localhost/IGDB/PHP/RestFulAPi/read.php');
  $obj = json_decode($json,TRUE);
 //json hämtar IGDB
  $temp = $obj["IGDB"];
  
 ?>
+
+
 
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <div class = "center">
@@ -24,7 +24,7 @@ ini_set("allow_url_fopen", 1);
             <th>Release</th>
             <th>Publisher</th>
             <th>Trailer</th>
-            <th>Rate!</th>
+            
             
         </tr>
 
@@ -43,8 +43,7 @@ ini_set("allow_url_fopen", 1);
   <source src="<?php echo $row['Trailer']; ?>" type="video/mp4">
     Your browser does not support the video tag.
         </video>   </td>
-            <td><button type="RATE" onclick="$stmt->execute($test,$test2);" value="">RATE</button></td>
-        </tr>
+                   </tr>
     <?php endforeach; ?>
   
 
