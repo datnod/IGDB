@@ -41,10 +41,8 @@ ini_set("allow_url_fopen", 1);
             <td><?php  echo $row['Release']; ?></td>
             <td><?php echo $row['Developer']; ?></td>
             <td>  
-   <video width="320" height="240" controls>
-  <source src="<?php echo $row['Trailer']; ?>" type="video/mp4">
-    Your browser does not support the video tag.
-        </video>   </td>
+            <iframe src="<?php echo $row['Trailer']; ?>"
+            width="560" height="315" frameborder="0" allowfullscreen></iframe> </td>  </td>
                    </tr>
     <?php endforeach; ?>
   
