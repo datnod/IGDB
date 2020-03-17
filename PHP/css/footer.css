@@ -1,4 +1,6 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
 .footer {
+    font-family: Raleway;
     position: absolute;
     right: 0;
     bottom: 0;
