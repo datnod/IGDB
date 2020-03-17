@@ -33,13 +33,13 @@ if($numz>0){
   
         $search_item=array(
             "idIGDB" =>  $idIGDB,
-            "picture" => $picture,
             "Title" => $Title,
             "Description" => $Description,
             "Genre" => $Genre,
             "Review" => $Review,
             "Release" => $Release,
             "Developer" => $Developer,
+            "Picture" => $Picture,
             "Trailer" => $Trailer,       
         );
   
@@ -96,7 +96,7 @@ else{
             <th>Genre</th>
             <th>Review</th>
             <th>Release</th>
-            <th>Publisher</th>
+            <th>Developer</th>
             <th>Trailer</th>
             
             
@@ -104,7 +104,7 @@ else{
         
     <?php foreach ((array)$temp as $row) : ?>
         <tr>
-            <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
+            <td><img src="<?php echo $row['Picture']; ?>" width="175"  height="200" /></td>
             <td><?php  echo $row['Title']; ?></td>
             <td><?php  echo $row['Description']; ?></td>
             <td><?php  echo $row['Genre']; ?></td>

@@ -6,8 +6,8 @@ header("Content-Type: application/json; charset=UTF-8");
 // database connection will be here
 
 // include database and object files
-include 'C:\xampp\htdocs\IGDB\PHP\RestFulAPi\database.php';
-include 'C:\xampp\htdocs\IGDB\PHP\RestFulAPi\product.php';
+include 'C:\xampp\htdocs\home\IGDB\PHP\RestFulAPi\database.php';
+include 'C:\xampp\htdocs\home\IGDB\PHP\RestFulAPi\product.php';
 // instantiate database and product object
 $database = new Database();
 $db = $database->connectDatabase();
@@ -27,7 +27,7 @@ if($num>0){
   
     // products array
    $products_arr=array();
-   $products_arr["IGDB"]=array();
+   $products_arr["igdb"]=array();
   
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -41,17 +41,17 @@ if($num>0){
   
         $product_item=array(
             "idIGDB" =>  $idIGDB,
-            "picture" => $picture,
             "Title" => $Title,
             "Description" => $Description,
             "Genre" => $Genre,
             "Review" => $Review,
             "Release" => $Release,
             "Developer" => $Developer,
+            "Picture" => $Picture,
             "Trailer" => $Trailer,       
         );
   
-        array_push($products_arr["IGDB"], $product_item);
+        array_push($products_arr["igdb"], $product_item);
     }
   
     // set response code - 200 OK
