@@ -4,10 +4,10 @@
 class Database{
   
     // specify your own database credentials
-    private $host = "localhost";
-    private $db_name = "mydb";
-    private $username = "root";
-    private $password = "root";
+    private $host = "den1.mysql6.gear.host";
+    private $db_name = "myigdb";
+    private $username = "myigdb";
+    private $password = "hejsan12334!";
     public $conn;
   
     // get the database connection

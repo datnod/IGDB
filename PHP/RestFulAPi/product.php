@@ -10,7 +10,7 @@ class Product{
    
     // object properties
     
-    public $picture;
+    public $Picture;
     public $Title;
     public $Description;
     public $Genre;
@@ -18,14 +18,14 @@ class Product{
     public $Developer;
     public $Trailer;
     public $id;
-    public $Release;  
+    public $ReleaseData;  
    
     function read(){
   
         // select all query
         $query = "SELECT
         *
-    FROM mydb.IGDB
+    FROM myigdb.igdb
     ORDER BY
         review
     DESC ";
@@ -54,7 +54,7 @@ function searchz( $idForSearch,$TitleForSearch,$GenreForSearch,$DeveloperForSear
     // select all query
     $query="SELECT
     *
-    FROM mydb.IGDB
+    FROM myigdb.igdb
     WHERE
     idIGDB = ?
     OR Title LIKE ?

@@ -1,9 +1,9 @@
 <?php $headerTitle = "Top Games"; include 'view/header.php'; 
 ini_set("allow_url_fopen", 1);
- $json = file_get_contents('http://localhost/IGDB/PHP/RestFulAPi/read.php');
+ $json = file_get_contents('http://localhost/home/IGDB/PHP/RestFulAPi/read.php');
  $obj = json_decode($json,TRUE);
 //json hämtar IGDB
- $temp = $obj["IGDB"];
+ $temp = $obj["igdb"];
  
 ?>
 
@@ -22,7 +22,7 @@ ini_set("allow_url_fopen", 1);
             <th>Genre</th>
             <th>Review</th>
             <th>Release</th>
-            <th>Publisher</th>
+            <th>Developer</th>
             <th>Trailer</th>
             
             
@@ -31,7 +31,7 @@ ini_set("allow_url_fopen", 1);
         
     <?php foreach ($temp  as $row) : ?>
             <tr>
-            <td><img src="<?php echo $row['picture']; ?>" width="175"  height="200" /></td>
+            <td><img src="<?php echo $row['Picture']; ?>" width="175"  height="200" /></td>
             <td><?php  echo $row['Title']; ?></td>
             <td><?php  echo $row['Description']; ?></td>
             <td><?php  echo $row['Genre']; ?></td>
