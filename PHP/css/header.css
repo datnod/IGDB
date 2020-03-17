@@ -51,6 +51,12 @@ div.container a
     z-index: 0;
     cursor: pointer;
 }
+div.login-container input{
+    float: right;
+}
+div.login-container button{
+    float: right;
+}
 
 .red
 {
