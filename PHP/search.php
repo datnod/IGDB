@@ -72,7 +72,8 @@ else{
   
 ?>
 <link rel="stylesheet" href="css/style.css" type="text/css">
-<div class = "center">
+<div class="center">
+<body>
 <h2>Search the database</h2>
 <form>
     <p>
@@ -83,7 +84,7 @@ else{
         </label>
     </p>
 </form>
-
+</div>
 
 <?php if ($search) : ?>
     
@@ -124,4 +125,5 @@ else{
 
     </div>
 <?php endif; ?>
+</body>
 <?php include 'view/footer.php';?>
