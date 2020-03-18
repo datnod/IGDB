@@ -1,22 +1,29 @@
-<?php
+<?php 
 session_start();
 
-/*
-*HTML divs booleans for create,delete,update shown if true, by default these are false.
-*/
+if( isset($_SESSION['validUser']) === true)
+{
+?>
+  <form method="post">  
+    <button type="submit" name="logout">Logout</button>
+  </form>
 
-
-if($_SESSION["validUser"] === true){
-
-}else if(!isset($_SESSION['validUser'])){ 
+<?php }else if(!isset($_SESSION['validUser'])){ 
   
   header("Location: index.php");
   exit;
 }
 
+if(isset($_POST['logout'])){
+    if(session_status()){
+      session_destroy();
+      header("Location: index.php");
+      exit;
+    }
+}
 ?>
 
-<?php $headerTitle = "Search DB"; include 'view/header.php';
+<?php $headerTitle = "Search DB";
 include_once '..\PHP\RestFulAPI\database.php';
 include_once '..\PHP\RestFulAPI\product.php';
 

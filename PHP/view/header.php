@@ -16,7 +16,6 @@
   <input type ="account" placeholder="Username" name="username">
   <input type ="password" placeholder="Password" name="password">
   <button type="submit" name="login">Login</button>
-  <button type="submit" name="logout">Logout</button>
 
   </form>
 </div>
@@ -51,12 +50,5 @@ if(isset($_POST['login'])){
     echo ("Unsucces");
   }
   
-
-}else if(isset($_POST['logout'])){
-    if(session_start()){
-      session_destroy();
-      header("Location: index.php");
-      exit;
-    }
 }
 ?>
