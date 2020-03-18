@@ -15,7 +15,9 @@
   <form method="post">
   <input type ="account" placeholder="Username" name="username">
   <input type ="password" placeholder="Password" name="password">
-  <button type="submit" name="submit">Login</button>
+  <button type="submit" name="login">Login</button>
+  <button type="submit" name="logout">Logout</button>
+
   </form>
 </div>
 <a href="index.php">Home</a>
@@ -29,7 +31,7 @@
   
 <?php
 include_once '..\PHP\RestFulAPI\database.php';
-if(isset($_POST['submit'])){
+if(isset($_POST['login'])){
   $username=$_POST['username'];
   $password=$_POST['password'];
 
@@ -50,5 +52,11 @@ if(isset($_POST['submit'])){
   }
   
 
+}else if(isset($_POST['logout'])){
+    if(session_start()){
+      session_destroy();
+      header("Location: index.php");
+      exit;
+    }
 }
 ?>
