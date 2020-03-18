@@ -47,7 +47,7 @@ if(isset($_POST['login'])){
     header("location: HiddenPage.php");
     
   }else{
-    echo ("Unsucces");
+    
   }
   
 }

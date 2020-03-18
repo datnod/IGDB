@@ -2,8 +2,7 @@
 /**
  * A page controller
  */
-require "config.php";
-require "src/functions.php";
+
 
 // Get incoming values
 $item  = $_GET["item"] ?? null;
