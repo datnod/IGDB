@@ -1,4 +1,8 @@
 <?php 
+
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
+
 session_start();
 
 if( isset($_SESSION['validUser']) === true)
