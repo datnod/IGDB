@@ -1,6 +1,5 @@
 <?php 
 
-<link rel="stylesheet" href="css/style.css" type="text/css">
 
 
 session_start();
@@ -30,3 +29,4 @@ if(isset($_POST['logout']))
 }
 ?>
 
+<link rel="stylesheet" href="css/style.css" type="text/css">
