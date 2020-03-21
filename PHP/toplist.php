@@ -1,15 +1,16 @@
 <?php $headerTitle = "Top Games"; include 'view/header.php'; 
+
+/**
+ * Toplist for retrieving all in the database
+ */
+
 ini_set("allow_url_fopen", 1);
- $json = file_get_contents('http://localhost/IGDB/PHP/RestFulAPi/read.php');
+ $json = file_get_contents('http://localhost/home/IGDB/PHP/RestFulAPi/read.php');
  $obj = json_decode($json,TRUE);
 //json hämtar IGDB
  $temp = $obj["igdb"];
  
 ?>
-
-
-
-
 
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <div class = "center">

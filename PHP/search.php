@@ -1,4 +1,8 @@
 <?php $headerTitle = "Search DB"; include 'view/header.php';
+/**
+ * Search function.
+ */
+
 include_once '..\PHP\RestFulAPI\database.php';
 include_once '..\PHP\RestFulAPI\product.php';
 

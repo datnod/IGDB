@@ -1,8 +1,9 @@
-
 <?php
- 
- 
- 
+
+/**
+ * Product class.
+ */
+
 class Product{
   
     // database connection and table name
@@ -39,17 +40,8 @@ class Product{
         return $stmt;
     }
    
-    
-   
-
-
-    
-  
 // search products
 function searchz( $idForSearch,$TitleForSearch,$GenreForSearch,$DeveloperForSearch){
-    
-
-
 
     // select all query
     $query="SELECT

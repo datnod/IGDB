@@ -1,6 +1,7 @@
-
-
 <?php
+/**
+ * Database class.
+ */
 class Database{
   
     // specify your own database credentials

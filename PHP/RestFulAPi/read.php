@@ -6,8 +6,8 @@ header("Content-Type: application/json; charset=UTF-8");
 // database connection will be here
 
 // include database and object files
-include 'C:\xampp\htdocs\IGDB\PHP\RestFulAPi\database.php';
-include 'C:\xampp\htdocs\IGDB\PHP\RestFulAPi\product.php';
+include 'C:\xampp\htdocs\home\IGDB\PHP\RestFulAPi\database.php';
+include 'C:\xampp\htdocs\home\IGDB\PHP\RestFulAPi\product.php';
 // instantiate database and product object
 $database = new Database();
 $db = $database->connectDatabase();

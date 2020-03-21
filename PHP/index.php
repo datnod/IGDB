@@ -2,7 +2,8 @@
 
 /**
  * Home page with a Narrative of what the website is.
- */?>
+ */
+?>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 
 <html>
